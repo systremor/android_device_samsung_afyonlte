@@ -32,8 +32,8 @@ For other variants (G386W, G386T1 etc.), look for afyonltecan. This one will **n
 | SD card           | No (need to fix up mapping)                 |
 | Root              | **Yes (tested with SuperSU)**               |
 | MTP               | Untested (gotta get storage in order first) |
-| ADB               | **Obviously :D***                           |
-
+| ADB               | **Obviously :D**                            |
+| SELinux           | Permissive 
 [1] - no touchkey backlight yet.
 
 This is very, very broken - not unexpected for the only device **ever** using this quirky SoC (apparently) that will receive its first custom ROM in 12 years! And this is my first device bringup ever.
