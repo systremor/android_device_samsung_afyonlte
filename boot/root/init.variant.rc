@@ -1,0 +1,159 @@
+on early-init
+
+on init
+
+on fs
+    chown root bluetooth /dev/ttySC4
+    chmod 0777 /dev/ttySC4
+
+    # for fm radio    
+#    copy /system/etc/local.prop /data/local.prop
+#    chown system bluetooth /data/local.prop
+#    chmod 0660 /data/local.prop
+    # setprop service.brcm.bt.patchfile /system/bin/BCM2076B1_xxx.hcd
+    # permissions for FMRadio of Broadcom
+#    chmod 0777 /system/bin/btld
+
+    # for gps permission.
+    chown root system /dev/ttySC5
+    chmod 0660 /dev/ttySC5
+    chown root system /sys/class/gps/bcm4752/GPS_PWR_EN/value
+    chmod 0664 /sys/class/gps/bcm4752/GPS_PWR_EN/value
+    chown radio radio /sys/class/gps/bcm4752/GPS_ECLK_26M/value
+    chmod 0664 /sys/class/gps/bcm4752/GPS_ECLK_26M/value
+    mkdir /data/system/gps 771 system system
+    chown system system /data/system/gps
+
+on post-fs
+    chown system system /sys/class/input/input0/enable
+    chown system system /sys/class/input/input0/poll_delay    
+    chmod 0660 /sys/class/input/input0/enable
+    chmod 0660 /sys/class/input/input0/poll_delay   
+
+    chown system system /sys/class/input/input1/enable
+    chown system system /sys/class/input/input1/poll_delay    
+    chmod 0660 /sys/class/input/input1/enable
+    chmod 0660 /sys/class/input/input1/poll_delay   
+
+    chown system system /sys/class/input/input2/enable
+    chown system system /sys/class/input/input2/poll_delay    
+    chmod 0660 /sys/class/input/input2/enable
+    chmod 0660 /sys/class/input/input2/poll_delay
+
+    chown system system /sys/class/input/input3/enable
+    chown system system /sys/class/input/input3/poll_delay    
+    chmod 0660 /sys/class/input/input3/enable
+    chmod 0660 /sys/class/input/input3/poll_delay   
+    
+    chown system system /sys/class/input/input4/enable
+    chown system system /sys/class/input/input4/poll_delay    
+    chmod 0660 /sys/class/input/input4/enable
+    chmod 0660 /sys/class/input/input4/poll_delay
+
+on property:ro.hscdtd.enable=true
+    chown root system /dev/hscd_i2c
+    chown root system /dev/alps_io
+    chown root system /dev/k3dh
+    chown root system /dev/proximity
+    
+    chmod 0660 /dev/hscd_i2c
+    chmod 0660 /dev/alps_io
+    chmod 0660 /dev/k3dh
+    chmod 0660 /dev/proximity
+
+on property:ro.mpu6k.enable=true
+    chown root system /dev/mpu6k
+    chmod 0660 /dev/mpu6k
+    chown system input /sys/class/input/input7/acc_enable
+    chown system input /sys/class/input/input7/acc_delay
+    chown system input /sys/class/input/input7/gyro_enable
+    chown system input /sys/class/input/input7/gyro_delay
+    chown system input /sys/class/input/input7/self_test
+    chown system input /sys/class/input/input7/accel_cal_open    
+
+on property:ro.yas532.enable=true
+    chown system system /dev/i2c-2
+    chmod 0660 /dev/i2c-2
+
+    chown system input /sys/class/input/input8/enable
+    chown system input /sys/class/input/input8/filter_enable
+    chown system input /sys/class/input/input8/filter_len
+    chown system input /sys/class/input/input8/filter_threshold
+    chown system input /sys/class/input/input8/filter_noise
+    chown system input /sys/class/input/input8/delay
+    chown system input /sys/class/input/input8/wake
+    chown system input /sys/class/input/input8/data
+    chown system input /sys/class/input/input8/status
+    chown system input /sys/class/input/input8/position
+
+    chown system input /sys/class/input/input9/threshold
+    chown system input /sys/class/input/input9/distortion
+    chown system input /sys/class/input/input9/shape
+    chown compass input /sys/class/input/input9/offsets
+    chown compass input /sys/class/input/input9/static_matrix
+    chown compass input /sys/class/input/input9/dynamic_matrix
+    chown compass input /sys/class/input/input9/ellipsoid_mode
+    write /sys/class/input/input9/distortion "400 50 15"
+
+    chmod 0660 /sys/class/input/input8/enable
+    chmod 0660 /sys/class/input/input8/filter_enable
+    chmod 0660 /sys/class/input/input8/filter_len
+    chmod 0660 /sys/class/input/input8/filter_threshold
+    chmod 0660 /sys/class/input/input8/filter_noise
+    chmod 0660 /sys/class/input/input8/delay
+    chmod 0660 /sys/class/input/input8/wake
+    chmod 0660 /sys/class/input/input8/data
+    chmod 0660 /sys/class/input/input8/status
+    chmod 0660 /sys/class/input/input8/position
+
+    chmod 0660 /sys/class/input/input9/threshold
+    chmod 0660 /sys/class/input/input9/distortion
+    chmod 0660 /sys/class/input/input9/shape
+    chmod 0660 /sys/class/input/input9/offsets
+    chmod 0660 /sys/class/input/input9/static_matrix
+    chmod 0660 /sys/class/input/input9/dynamic_matrix
+    chmod 0660 /sys/class/input/input9/ellipsoid_mode
+    start geomagneticd
+    
+on post-fs-data
+
+on early-boot
+
+on boot
+# RTCC Interval
+write /sys/module/lowmemorykiller/parameters/min_interval 500
+
+    #MTA preference
+    #setprop sys.trace.nvm1.path "/data/log/err"
+    #setprop sys.trace.nvm1.eh.dmp_path "/data/log/err/dump"
+    #setprop sys.trace.nvm1.eh.xfl_path "/data/log/err/xfile"
+    #setprop sys.trace.nvm2.path "/data/log/err"
+    #setprop sys.trace.nvm2.eh.dmp_path "/data/log/err/dump"
+    #setprop sys.trace.nvm2.eh.xfl_path "/data/log/err/xfile"
+    
+    setprop sys.trace.nvm1.path "/storage/extSdCard/ntrace"
+    setprop sys.trace.nvm1.eh.dmp_path "/storage/extSdCard/ntrace/dump"
+    setprop sys.trace.nvm1.eh.xfl_path "/storage/extSdCard/ntrace/xfile"
+    setprop sys.trace.nvm2.path "/sdcard/ntrace"
+    setprop sys.trace.nvm2.eh.dmp_path "/sdcard/ntrace/dump"
+    setprop sys.trace.nvm2.eh.xfl_path "/sdcard/ntrace/xfile"
+
+# Runtime Compcache
+service rtccd /system/bin/rtccd2 -a 150M
+    class core
+    user root
+    oneshot
+
+on property:init.svc.rtccd=stopped
+    write /proc/sys/vm/page-cluster 0
+
+service geomagneticd /system/bin/geomagneticd
+    class main
+    user compass
+    group system input
+    disabled
+
+service atd /system/bin/at_distributor
+    class main
+    user root
+    group radio misc log
