@@ -12,6 +12,7 @@ lib/hw/camera.u2.so
 lib/hw/hwcomposer.u2.so
 lib/hw/nfc.mp523x.so
 lib/hw/sensors.u2.so
+lib/libacdapi_azi.so
 lib/libamhal.so
 lib/libaudiopolicy_sec.so
 lib/libaudio_test.so

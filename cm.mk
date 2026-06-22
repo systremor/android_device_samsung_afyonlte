@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/usr/keychars/mp523x-keypad.kcm:system/usr/keychars/mp523x-keypad.kcm \
 	$(LOCAL_PATH)/prebuilts/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
 	$(LOCAL_PATH)/prebuilts/usr/keylayout/mp523x-keypad.kl:system/usr/keylayout/mp523x-keypad.kl \
-	$(LOCAL_PATH)/prebuilts/usr/keylayout/pixcir-i2c-ts_key.kl:system/usr/keylayout/pixcir-i2c-ts_key.kl
+	$(LOCAL_PATH)/prebuilts/usr/keylayout/pixcir-i2c-ts_key.kl:system/usr/keylayout/pixcir-i2c-ts_key.kl \
 	$(LOCAL_PATH)/system.prop:system/system.prop
 
 PRODUCT_DEVICE := afyonlte
