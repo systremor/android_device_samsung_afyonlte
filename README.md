@@ -38,3 +38,5 @@ For other variants (G386W, G386T1 etc.), look for afyonltecan. This one will **n
 [1] - no touchkey backlight yet.
 
 This is very, very broken - not unexpected for the only device **ever** using this quirky SoC (apparently) that will receive its first custom ROM in 12 years! And this is my first device bringup ever.
+
+0% of the code in this repository is made by LLMs. They're only used for research (with mixed results).
