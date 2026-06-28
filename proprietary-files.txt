@@ -18,6 +18,7 @@ lib/libaudiopolicy_sec.so
 lib/libaudio_test.so
 lib/libcontrolcsc.so
 lib/libEGL.so
+lib/libeosjpeg.so
 lib/librtapi.so
 lib/libsamsungDiamondVoice.so
 lib/libsamsungpowersound.so

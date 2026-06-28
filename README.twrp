@@ -1,0 +1,41 @@
+# Patch TWRP for afyonlte (Renesas)
+
+
+
+Due to the obvious quirkiness and lack of documentation for the Renesas MP5232 chipset, the framebuffer on TWRP will not work out of the box.
+
+Some patching is required to get a stable image on the screen.
+
+In `bootable/recovery/minui/graphics_fbdev.cpp`, find this block of code:
+
+```cpp
+static void set_displayed_framebuffer(unsigned n)
+{
+    if (n > 1 || !double_buffered) return;
+
+    vi.yres_virtual = gr_framebuffer[0].height * 2;
+    vi.yoffset = n * gr_framebuffer[0].height;
+    vi.bits_per_pixel = gr_framebuffer[0].pixel_bytes * 8;
+```
+
+Patch it so that it looks like this:
+
+```cpp
+static void set_displayed_framebuffer(unsigned n)
+{
+    if (n > 1 || !double_buffered) return;
+
+    vi.yres_virtual = gr_framebuffer[0].height; // * 2
+    vi.yoffset = 960; //n * gr_framebuffer[0].height;
+    vi.bits_per_pixel = gr_framebuffer[0].pixel_bytes * 8;
+```
+
+(28/05/2026) I've had some issues with getting ro.hardware property set properly, so the get the `mpro` helper service working (defined in `init.recovery.u2.rc`), patch your `bootable/recovery/etc/init.rc` imports on the top to look like this:
+
+```
+import /init.recovery.logd.rc
+import /init.recovery.usb.rc
+import /init.recovery.u2.rc
+```
+
+So instead of `/init.recovery.$(ro.hardware).rc`, `/init.recovery.u2.rc` is used.

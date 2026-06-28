@@ -1,2 +1,2 @@
 add_lunch_combo cm_afyonlte-userdebug
-add_lunch_combo philz_afyonlte-userdebug
+add_lunch_combo omni_afyonlte-userdebug

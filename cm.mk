@@ -11,6 +11,7 @@ $(call inherit-product, device/samsung/afyonlte/afyonlte.mk)
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/boot/root/boot/RTFM_SH4AL_DSP_MU200.bin:root/boot/RTFM_SH4AL_DSP_MU200.bin \
+	$(LOCAL_PATH)/boot/root/fstab:root/fstab \
 	$(LOCAL_PATH)/boot/root/fstab.u2evm:root/fstab.u2evm \
 	$(LOCAL_PATH)/boot/root/init.bt.rc:root/init.bt.rc \
 	$(LOCAL_PATH)/boot/root/init.mp523x.rc:root/init.mp523x.rc \
@@ -33,6 +34,15 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/usr/keylayout/mp523x-keypad.kl:system/usr/keylayout/mp523x-keypad.kl \
 	$(LOCAL_PATH)/prebuilts/usr/keylayout/pixcir-i2c-ts_key.kl:system/usr/keylayout/pixcir-i2c-ts_key.kl \
 	$(LOCAL_PATH)/system.prop:system/system.prop
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml
+
+PRODUCT_PACKAGES += \
+	Gallery2 \
+	Camera
 
 PRODUCT_DEVICE := afyonlte
 PRODUCT_NAME := cm_afyonlte

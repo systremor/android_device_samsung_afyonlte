@@ -1,17 +1,27 @@
 DEVICE_PATH := device/samsung/afyonlte
 
-TARGET_KERNEL_SOURCE := kernel/samsung/afyonlte
-TARGET_KERNEL_CONFIG := u2_afyonlte_rev000_defconfig
+#TARGET_KERNEL_SOURCE := kernel/samsung/afyonlte
+#TARGET_KERNEL_CONFIG := u2_afyonlte_rev000_defconfig
+
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 
+TARGET_CPU_VARIANT := cortex-a9
+
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
+BOARD_HAS_NO_REAL_SDCARD := true
+BOARD_HAS_NO_SELECT_BUTTON := true
 
-TARGET_NO_RECOVERY := true
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/recovery.fstab
+RECOVERY_FSTAB_VERSION := 2
+
+
 TARGET_NO_BOOTLOADER := true
+
 
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -26,6 +36,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_CMDLINE := console=ttySC0,115200
 
+TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE := 10485760
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1546649600
@@ -45,3 +56,18 @@ BOARD_HAVE_BLUETOOTH := true
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
 USE_DEVICE_SPECIFIC_CAMERA := true
+
+# TWRP
+# Recovery partition is quite small (10MB), so let's remove
+# a bunch of non-critical stuff
+TW_EXCLUDE_ENCRYPTED_BACKUPS := true
+TW_EXCLUDE_PYTHON := true
+TW_EXCLUDE_NANO := true
+TW_EXCLUDE_BASH := true
+TW_EXCLUDE_TZDATA := true
+TW_NO_EXFAT := true
+TW_NO_EXFAT_FUSE := true
+TW_NO_MINUI_CUSTOM_FONTS := true
+TW_INCLUDE_FBE := false
+TW_INCLUDE_NTFS_3G := false
+TW_INCLUDE_CRYPTO := false
