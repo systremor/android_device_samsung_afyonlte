@@ -1,2 +1,7 @@
+add_lunch_combo cm_afyonlte-eng
+add_lunch_combo cm_afyonlte-user
 add_lunch_combo cm_afyonlte-userdebug
+
+add_lunch_combo omni_afyonlte-eng
+add_lunch_combo omni_afyonlte-user
 add_lunch_combo omni_afyonlte-userdebug

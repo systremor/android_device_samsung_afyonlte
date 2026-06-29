@@ -4,7 +4,9 @@ LOCAL_PATH := device/samsung/afyonlte
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilts/kernel:kernel
+$(call inherit-product, vendor/samsung/afyonlte/afyonlte-vendor.mk)
+
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/recovery.fstab:recovery/root/etc/recovery.fstab
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
@@ -17,7 +19,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapsize=256m \
 	dalvik.vm.heaptargetutilization=0.75 \
 	dalvik.vm.heapminfree=2m \
-	dalvik.vm.heapmaxfree=8m
+	dalvik.vm.heapmaxfree=8m \
+	dalvik.vm.dexopt-flags=v=n,o=n \
+	dalvik.vm.dexopt-data-only=1
 
 DEVICE_RESOLUTION := 540x960
 

@@ -1,6 +1,6 @@
 PRODUCT_RELEASE_NAME := afyonlte
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, build/target/product/full_base_telephony.mk)
 
 $(call inherit-product, vendor/omni/config/common.mk)
 
@@ -13,9 +13,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/recovery/root/init.recovery.u2.rc:recovery/root/init.recovery.u2.rc
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd.density=240 \
-	ro.sf.lcd_density=240 \
-	ro.hardware=u2
+	ro.sf.lcd.density=240
 
 PRODUCT_DEVICE := afyonlte
 PRODUCT_NAME := omni_afyonlte

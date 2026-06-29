@@ -1,10 +1,4 @@
-etc/asound.conf
-etc/audio_effects.conf
-etc/audio_policy.conf
-etc/media_codecs.xml
-etc/media_profiles.xml
 lib/hw/alsa.default.so
-lib/hw/audio.a2dp.default.so
 lib/hw/audio_policy.u2.so
 lib/hw/audio.primary.u2.so
 lib/hw/audio.tms.default.so
@@ -14,11 +8,13 @@ lib/hw/nfc.mp523x.so
 lib/hw/sensors.u2.so
 lib/libacdapi_azi.so
 lib/libamhal.so
+lib/libasound.so
 lib/libaudiopolicy_sec.so
 lib/libaudio_test.so
 lib/libcontrolcsc.so
 lib/libEGL.so
 lib/libeosjpeg.so
+lib/librenesas-ril.so
 lib/librtapi.so
 lib/libsamsungDiamondVoice.so
 lib/libsamsungpowersound.so
@@ -27,8 +23,10 @@ lib/lib_SamsungRec_V01006.so
 lib/lib_Samsung_Resampler.so
 lib/lib_Samsung_SB_AM_for_ICS_v04004.so
 lib/libsamsungSoundbooster.so
+lib/libsecril-client.so
 lib/libvcd.so
-system.prop
+modules/pvrsrvkm.ko
+modules/shmobilelfb.ko
 vendor/bin/debuglog
 vendor/bin/ionmapper
 vendor/bin/mpro2
