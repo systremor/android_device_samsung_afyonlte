@@ -491,6 +491,9 @@ on boot
     chown radio system /sys/devices/platform/samsung-pd.5/s3c-fimc.2/range_mode
     chmod 0660 /sys/devices/platform/samsung-pd.5/s3c-fimc.2/range_mode
 
+    # Permissions for rear flash (Torch app)
+    chmod 0666 /sys/class/camera/rear/rear_flash
+
     # Audio (Earjack)
     chown system radio /sys/class/audio/earjack/select_jack
     chown system radio /sys/class/audio/earjack/key_state
