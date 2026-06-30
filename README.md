@@ -18,29 +18,27 @@ Device tree for Samsung Galaxy Core LTE (SM-G386F, Renesas variant)
 | **Functionality** | Works?                                           |
 | ----------------- | ------------------------------------------------ |
 | Display           | **Yes**[1]                                       |
-| Buttons           | **Yes**[2]                                       |
+| Buttons           | **Yes**                                          |
 | Sound             | **Yes**                                          |
 | Vibration         | **Yes**                                          |
 | NFC               | No                                               |
 | RIL               | No                                               |
 | Bluetooth         | No                                               |
 | Wi-Fi             | No                                               |
-| Camera            | **Yes**[3]                                       |
+| Camera            | **Yes**[2]                                       |
 | Video rec.        | No                                               |
 | Sensors           | No (recognized, but no events received)          |
-| SD card           | No (need to fix up mapping)                      |
+| SD card           | No                                               |
 | Root              | **Yes (tested with SuperSU v2.82)**              |
 | MTP               | Untested!                                        |
 | ADB               | **Obviously, this wouldn't exist without it :D** |
-| SELinux           | Permissive                                       |
+| SELinux           | Not working                                      |
 
 
 
 [1] sluggish at times (e.g. JB easter egg).
 
-[2] no touchkey backlight yet.
-
-[3] photos are taken with wrong rotation because accelerometer does not work yet
+[2] photos are taken with wrong rotation because accelerometer does not work yet
 
 
 

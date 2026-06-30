@@ -6,7 +6,7 @@ Due to the obvious quirkiness and lack of documentation for the Renesas MP5232 c
 
 Some patching is required to get a stable image on the screen.
 
-In `bootable/recovery/minui/graphics_fbdev.cpp`, find this block of code:
+In `bootable/recovery/minuitwrp/graphics_fbdev.cpp`, find this block of code:
 
 ```cpp
 static void set_displayed_framebuffer(unsigned n)
