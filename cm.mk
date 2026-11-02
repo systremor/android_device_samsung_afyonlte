@@ -20,6 +20,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/boot/root/init.trace.rc:root/init.trace.rc \
 	$(LOCAL_PATH)/boot/root/init.u2evm.usb.rc:root/init.u2evm.usb.rc \
 	$(LOCAL_PATH)/boot/root/init.usb.rc:root/init.usb.rc \
+	$(LOCAL_PATH)/boot/root/init.variant.rc:root/init.variant.rc \
 	$(LOCAL_PATH)/boot/root/init.vendor.rc:root/init.vendor.rc \
 	$(LOCAL_PATH)/boot/root/init.wifi.rc:root/init.wifi.rc \
 	$(LOCAL_PATH)/boot/root/lib/modules/fm34-we395.ko:root/lib/modules/fm34-we395.ko \
@@ -32,11 +33,18 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/boot/root/ueventd.u2.rc:root/ueventd.u2.rc \
 	$(LOCAL_PATH)/prebuilts/etc/asound.conf:system/etc/asound.conf \
 	$(LOCAL_PATH)/prebuilts/etc/audio_policy.conf:system/etc/audio_policy.conf \
+	$(LOCAL_PATH)/prebuilts/etc/calib.dat:system/etc/calib.dat \
 	$(LOCAL_PATH)/prebuilts/etc/media_codecs.xml:system/etc/media_codecs.xml \
 	$(LOCAL_PATH)/prebuilts/etc/media_profiles.xml:system/etc/media_profiles.xml \
+	$(LOCAL_PATH)/prebuilts/etc/param.dat:system/etc/param.dat \
+	$(LOCAL_PATH)/prebuilts/etc/sensors.dat:system/etc/sensors.dat \
 	$(LOCAL_PATH)/prebuilts/etc/vold.conf:system/etc/vold.conf \
 	$(LOCAL_PATH)/prebuilts/etc/vold.fstab:system/etc/vold.fstab \
+	$(LOCAL_PATH)/prebuilts/etc/trace.cfg:system/etc/trace.cfg \
 	$(LOCAL_PATH)/prebuilts/etc/vqa.cfg:system/etc/vqa.cfg \
+	$(LOCAL_PATH)/prebuilts/etc/wifi/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
+	$(LOCAL_PATH)/prebuilts/etc/wifi/nvram_net.txt:system/etc/wifi/nvram_net.txt \
+	$(LOCAL_PATH)/prebuilts/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 	$(LOCAL_PATH)/prebuilts/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
 	$(LOCAL_PATH)/prebuilts/usr/keychars/mp523x-keypad.kcm:system/usr/keychars/mp523x-keypad.kcm \
 	$(LOCAL_PATH)/prebuilts/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
@@ -60,16 +68,27 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
 	$(LOCAL_PATH)/prebuilts/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
 	$(LOCAL_PATH)/prebuilts/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
-
+	$(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
 
 PRODUCT_PACKAGES += \
 	Gallery2 \
 	Camera \
-	Torch
+	Torch \
+	wpa_supplicant \
+	dhcpcd \
+	hostapd \
+	lib_driver_cmd_bcmdhd \
+	Bluetooth \
+	Settings \
+	Nfc \
+	libnfc_jni
 
 PRODUCT_DEVICE := afyonlte
 PRODUCT_NAME := cm_afyonlte

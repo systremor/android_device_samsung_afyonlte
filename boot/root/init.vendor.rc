@@ -16,7 +16,8 @@ on init
     mkdir /mnt/modemlog 0700 system system
 
     # Re-flashable partition for MODEM-FSA (MODEMFSRW)
-    mkdir /mnt/modemfsrw 0700 system system
+    # systremor: change ownership to radio:radio
+    mkdir /mnt/modemfsrw 0770 radio radio
 
     # Non-reflashable partition for MODEM-FSA (MODEMFSRO)
     mkdir /mnt/modemfsro 0700 system system
@@ -42,22 +43,24 @@ on fs
     # write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
 
     # mount operations break folder owner
+    # systremor: this goes to radio:radio as well (modemfsrw)
     chown system system /mnt/modemfsro_fix
     chown system system /mnt/modemfsro_fix/FIX
     chown system system /mnt/modemfsro
     chown system system /mnt/modemfsro/CALIB
     chown system system /mnt/modemfsrw
-    chown system system /mnt/modemfsrw/CONF
-    chown system system /mnt/modemfsrw/CONF/MCE
-    chown system system /mnt/modemfsrw/CONF/MCE/MCElocal.CFG
-    chown system system /mnt/modemfsrw/CONF/MCE/MCEnormal.CFG
-    chown system system /mnt/modemfsrw/CONF/MCE/MCE.CFG
+    chown radio radio /mnt/modemfsrw/CONF
+    chown radio radio /mnt/modemfsrw/CONF/MCE
+    chown radio radio /mnt/modemfsrw/CONF/MCE/MCElocal.CFG
+    chown radio radio /mnt/modemfsrw/CONF/MCE/MCEnormal.CFG
+    chown radio radio /mnt/modemfsrw/CONF/MCE/MCE.CFG
     chown system system /mnt/modemlog
     chown system system /mnt/securityro
 
     # Create Directory to store MODEM-FSA
-    mkdir /mnt/modemfsrw/APE 0700 system system
-    mkdir /mnt/modemfsrw/APE/modemfs 0700 system system
+    # systremor: change ownership to 0770 radio:radio
+    mkdir /mnt/modemfsrw/APE 0770 radio
+    mkdir /mnt/modemfsrw/APE/modemfs 0770 radio radio
 
 
 on post-fs

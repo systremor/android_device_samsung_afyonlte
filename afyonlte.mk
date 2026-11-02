@@ -21,7 +21,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapminfree=2m \
 	dalvik.vm.heapmaxfree=8m \
 	dalvik.vm.dexopt-flags=v=n,o=n \
-	dalvik.vm.dexopt-data-only=1
+	dalvik.vm.dexopt-data-only=1 \
+	ro.telephony.default_network=9
+
 
 DEVICE_RESOLUTION := 540x960
 

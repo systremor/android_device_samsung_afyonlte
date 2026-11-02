@@ -1,3 +1,14 @@
+bin/at_distributor
+bin/atparser
+bin/modem-boot
+bin/modem-errorhandler
+bin/modem-fsa
+bin/secsrv
+etc/firmware/fw_bcmdhd.bin
+etc/wifi/bcmdhd.cal
+etc/diamond.bin
+etc/spuv.bin
+etc/pcm_proc.bin
 lib/hw/alsa.default.so
 lib/hw/audio_policy.u2.so
 lib/hw/audio.primary.u2.so
@@ -23,8 +34,10 @@ lib/lib_SamsungRec_V01006.so
 lib/lib_Samsung_Resampler.so
 lib/lib_Samsung_SB_AM_for_ICS_v04004.so
 lib/libsamsungSoundbooster.so
+lib/libsecnativefeature.so
 lib/libsecril-client.so
 lib/libvcd.so
+lib/modules/dhd.ko
 modules/pvrsrvkm.ko
 modules/shmobilelfb.ko
 vendor/bin/debuglog
@@ -32,6 +45,7 @@ vendor/bin/ionmapper
 vendor/bin/mpro2
 vendor/bin/rtversion
 vendor/bin/timinglog
+vendor/firmware/BCM4330B1_002.001.003.0967.0000_Samsung_Logan_LTE_I2SSlave.hcd
 vendor/lib/egl/libEGL_POWERVR_SGX544_115.so
 vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_115.so
 vendor/lib/egl/libGLESv2_POWERVR_SGX544_115.so
@@ -46,3 +60,8 @@ vendor/lib/libPVRScopeServices.so
 vendor/lib/libsrv_init.so
 vendor/lib/libsrv_um.so
 vendor/lib/libusc.so
+
+# I hope I can get rid of using Sammy's libril from stock...
+# This is because rild from CM does not co-operate with
+# RIL stack's simCardStatus.
+lib/libril.so
